@@ -4,6 +4,7 @@ import {Route, NavLink, Switch, Redirect} from 'react-router-dom'
 import About from './About/About'
 import Cars from './Cars/Cars'
 import CarDetail from "./CarDetail/CarDetail";
+import Home from './Home/Home'
 
 class App extends Component {
 
@@ -21,7 +22,7 @@ class App extends Component {
         <nav className="nav">
           <ul>
             <li>
-              <NavLink to='/' exact activeClassName={'navActive'}
+              <NavLink to='/home' activeClassName={'navActive'}
               >
                   Home
               </NavLink>
@@ -49,8 +50,8 @@ class App extends Component {
         </div>
 
         <Switch>
-            <Route path="/" exact render={() => <h1>Home Page</h1>} />
-            { this.state.isLoggedIn ?  <Route path="/about" component={About} /> : null}
+            <Route path="/home" component={Home}/>
+            { this.state.isLoggedIn ?  <Route path="/about"  component={About} /> : null}
             {/*<Route path="/about" component={About} />*/}
             <Route path="/cars/:name" component={CarDetail}/>
             <Route path="/cars" component={Cars}/>
